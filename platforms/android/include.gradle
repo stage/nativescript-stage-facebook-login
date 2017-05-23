@@ -1,0 +1,23 @@
+// default element
+android { 
+    productFlavors {
+        "nativescript-facebook-login-stageme" {
+            dimension "nativescript-facebook-login-stageme"
+        }
+    }
+}
+
+// add dependency to the facebook sdk
+dependencies {
+    compile 'com.facebook.android:facebook-android-sdk:4.14.0'
+}
+
+// the following code takes care of replacing your facebook id in the right place so the facebook sdk can use it
+// task replaceId { 
+// 	def subFile = 'src/nativescript-facebook-plugin/res/values/values.xml'
+// 	def yourFbId = '__YOUR_FACEBOOK_APP_ID_HERE__'
+	
+// 	String contents = new File(subFile).getText('UTF-8') 
+// 	contents = contents.replaceAll( '#fb_id#', yourFbId)
+// 	new File(subFile).write(contents, 'UTF-8')
+// }

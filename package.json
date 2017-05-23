@@ -1,0 +1,22 @@
+{
+  "name": "nativescript-stage-facebook-login",
+  "version": "1.0.0",
+  "description": "Nativescript Facebook Login plugin",
+  "main": "facebook-handler",
+  "nativescript": {
+    "platforms": {
+      "android": "3.0.0",
+      "ios": "3.0.0"
+    },
+    "plugin": {
+      "nan": "true",
+      "pan": "true",
+      "core3": "true",
+      "category": "Interface"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stage/nativescript-stage-facebook-login"
+  }
+}
