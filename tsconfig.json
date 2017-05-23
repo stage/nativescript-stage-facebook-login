@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "removeComments": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "noEmitHelpers": true
+    },
+    "files": [
+      "facebook-handler.android.ts", 
+      "facebook-handler.ios.ts"
+    ],
+    "compileOnSave": false
+}
