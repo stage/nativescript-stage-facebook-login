@@ -37,11 +37,11 @@ export function init(facebookAppId, facebookAppDisplayName): boolean {
   //This solve the case when user changes accounts error code 304
   loginManager.logOut();
 
-  
+
   // if we want to change the loginBehavior:
   // https://developers.facebook.com/docs/reference/android/current/class/LoginBehavior/
   // loginManager = loginManager.setLoginBehavior(loginBehavior);
-  
+
   if (mCallbackManager && loginManager) {
     _isInit = true;
     return true;
@@ -51,7 +51,7 @@ export function init(facebookAppId, facebookAppDisplayName): boolean {
   }
 }
 
-export function registerCallback(successCallback: any, cancelCallback: any, failCallback: any) {
+export function registerCallback(successCallback: any, cancelCallback: any, failCallback: any, declinePermissionsCallback: any) {
 
   if (_isInit) {
     var act = _AndroidApplication.foregroundActivity || _AndroidApplication.startActivity;
@@ -60,7 +60,8 @@ export function registerCallback(successCallback: any, cancelCallback: any, fail
     loginManager.registerCallback(mCallbackManager, new com.facebook.FacebookCallback({
 
       onSuccess: function (result) {
-        successCallback(result.getAccessToken().getToken());
+        let _deniedPermissionsCount = result.getRecentlyDeniedPermissions().size();
+        _deniedPermissionsCount > 0 ? declinePermissionsCallback() : successCallback(result.getAccessToken().getToken());
       },
       onCancel: function () {
         cancelCallback();
