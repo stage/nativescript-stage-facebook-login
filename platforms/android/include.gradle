@@ -1,8 +1,8 @@
 // default element
 android { 
     productFlavors {
-        "nativescript-facebook-login-stageme" {
-            dimension "nativescript-facebook-login-stageme"
+        "nativescript-stage-facebook-login" {
+            dimension "nativescript-stage-facebook-login"
         }
     }
 }

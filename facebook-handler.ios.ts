@@ -47,7 +47,7 @@ export function init(facebookAppId, facebookAppDisplayName): boolean {
    }
   }
 
-export function registerCallback(successCallback: any, cancelCallback: any, failCallback: any) {
+export function registerCallback(successCallback: any, cancelCallback: any, failCallback: any, declinePermissionsCallback: any) {
     if (_isInit) {
       mCallbackManager= function(result: FBSDKLoginManagerLoginResult, error: NSError) {
 
@@ -66,6 +66,12 @@ export function registerCallback(successCallback: any, cancelCallback: any, fail
         if (result.isCancelled) {
           console.log("mCallbackManager result.isCancelled");
           cancelCallback();
+          return;
+        }
+
+        if (result.declinedPermissions) {
+          console.log("mCallbackManager result.declinedPermissions");
+          declinePermissionsCallback();
           return;
         }
 
