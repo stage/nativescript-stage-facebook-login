@@ -69,7 +69,7 @@ export function registerCallback(successCallback: any, cancelCallback: any, fail
           return;
         }
 
-        if (result.declinedPermissions) {
+        if (result.declinedPermissions.count > 0) {
           console.log("mCallbackManager result.declinedPermissions");
           declinePermissionsCallback();
           return;
